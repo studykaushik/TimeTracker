@@ -11,7 +11,8 @@ import android.widget.ListView;
 public class TimeTracker extends Activity{
 	private Time_Tracker_Adapter timeTrackerAdapter;
 	public static final int TIME_ENTRY_REQUEST_CODE = 1;
-	
+	public static final int TIME_ENTRY_REQUEST_CODE_ABOUT = 2;
+	public TimeTrackerDBHelper timeTrackerDBHelper;
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.time__tracker_layout);
@@ -19,6 +20,8 @@ public class TimeTracker extends Activity{
 		ListView timeTrackerListView = (ListView) findViewById(R.id.time_tracker_layout_id);
 		timeTrackerAdapter = new Time_Tracker_Adapter();
 		timeTrackerListView.setAdapter(timeTrackerAdapter);
+		
+		timeTrackerDBHelper = new TimeTrackerDBHelper(this);
 	}
 	
 	@Override
@@ -33,6 +36,10 @@ public class TimeTracker extends Activity{
 			Intent intent = new Intent(this,AddTimeActivity.class);
 			startActivityForResult(intent, TIME_ENTRY_REQUEST_CODE);
 			return true;
+		}else if(item.getItemId() == R.id.aboutId){
+			Intent intent = new Intent(this,AboutActivity.class);
+			startActivity(intent);
+			return true;
 		}
 		return super.onMenuItemSelected(featureId, item);
 	}
@@ -43,6 +50,7 @@ public class TimeTracker extends Activity{
 				String time = data.getStringExtra("time");
 				String notes = data.getStringExtra("notes");
 				
+				timeTrackerDBHelper.saveTimeRecord(time,notes);
 				timeTrackerAdapter.addTimeRecord(new TimeTrackerRecord(time, notes));
 				timeTrackerAdapter.notifyDataSetChanged();
 			}

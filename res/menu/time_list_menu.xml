@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    
     <item 
         android:id="@+id/add_record" 
-        android:title="@string/addTime"
-        >
-        
+        android:title="@string/addTime">
     </item>
+    <item android:id="@+id/aboutId" android:title="About"></item>
     
 
 </menu>

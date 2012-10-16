@@ -23,7 +23,11 @@
     	<activity
             android:name=".AddTimeActivity"
             android:label="@string/AddTimeActivity" >
-        </activity>    
+        </activity>   
+        <activity
+            android:name=".AboutActivity"
+            android:label="@string/AboutActivityName" >
+        </activity> 
     </application>
 	
 </manifest>

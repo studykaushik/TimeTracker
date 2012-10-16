@@ -5,6 +5,6 @@
     <string name="menu_settings">Settings</string>
     <string name="title_activity_time__tracker">Time Tracker</string>
     <string name="AddTimeActivity">Add Time</string><string name="addTime">Add</string>
-    
-
+    <string name="About">This App has been developed by Kaushik Ray</string>
+    <string name="AboutActivityName">About Activity</string>
 </resources>
